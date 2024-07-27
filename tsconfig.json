@@ -1,4 +1,11 @@
 {
+  "compilerOptions": {
+    /* Path alias configuration */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+  },
   "files": [],
   "references": [
     {
