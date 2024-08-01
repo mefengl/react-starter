@@ -4,21 +4,41 @@ import perfectionistNatural from 'eslint-plugin-perfectionist/configs/recommende
 
 const compat = new FlatCompat()
 
-export default antfu({
-  rules: {
-    'import/order': 'off',
-    'tailwindcss/migration-from-tailwind-2': 'off',
-    'tailwindcss/no-custom-classname': 'off',
+export default antfu(
+  {
+    perfectionistNatural,
+    rules: {
+      'import/order': 'off',
+    },
   },
-}, ...compat.config({
-  extends: [
-    'plugin:tailwindcss/recommended',
-    'plugin:react-hooks/recommended',
-  ],
-  ignorePatterns: [
-    'src/components/ui/*',
-    'src/lib/utils.ts',
-    'tailwind.config.js',
-    'tsconfig.*',
-  ],
-}), perfectionistNatural)
+
+  {
+    rules: {
+      'tailwindcss/migration-from-tailwind-2': 'off',
+      'tailwindcss/no-custom-classname': 'off',
+    },
+  },
+  ...compat.config({
+    extends: [
+      'plugin:tailwindcss/recommended',
+      'plugin:react-hooks/recommended',
+    ],
+    ignorePatterns: [
+      'tsconfig.*',
+    ],
+  }),
+
+  // shadcn/ui
+  ...compat.config({
+    ignorePatterns: [
+      'src/components/ui/*',
+      'src/lib/utils.ts',
+      'tailwind.config.js',
+    ],
+  }),
+
+  // @tanstack/react-router
+  ...compat.config({
+    ignorePatterns: ['routeTree.gen.ts'],
+  }),
+)
