@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    /* Path alias configuration */
+    /* Path alias configuration: for shadcn/ui cli */
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
