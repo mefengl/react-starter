@@ -16,11 +16,11 @@
 ### Install
 
 ```bash
-npm install
+bun i
 ```
 
 ### Development
 
 ```bash
-npm run dev
+bun dev
 ```
